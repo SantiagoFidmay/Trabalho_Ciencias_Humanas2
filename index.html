@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infográfico de Fluxo: ASUS ROG Flow Z13 - Da Concepção ao Consumidor</title>
+    <title>ASUS ROG Flow Z13 - Jornada Global do Produto</title>
     <style>
         * {
             margin: 0;
@@ -11,9 +11,17 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --rog-orange: #ff6b35;
+            --rog-gold: #f7931e;
+            --rog-dark: #0a0a0a;
+            --rog-blue: #1a1a2e;
+            --rog-accent: #00d4ff;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(180deg, var(--rog-dark) 0%, var(--rog-blue) 50%, #0d1b2a 100%);
             color: #ffffff;
             overflow-x: hidden;
             line-height: 1.6;
@@ -25,1008 +33,997 @@
             padding: 20px;
         }
 
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border-radius: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
-        }
-
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header h2 {
-            font-size: 1.5em;
-            font-weight: 300;
-            opacity: 0.95;
-        }
-
-        .flow-container {
+        /* Hero Section com Imagem do Tablet */
+        .hero {
             position: relative;
-            padding: 20px 0;
-        }
-
-        .flow-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #ff6b35, #f7931e, #ff6b35);
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        .stage {
-            position: relative;
-            margin-bottom: 60px;
-            z-index: 2;
-        }
-
-        .stage-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stage-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .stage-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .stage-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            border-radius: 50%;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
-            font-weight: bold;
-            flex-shrink: 0;
+            background: radial-gradient(ellipse at center, rgba(255,107,53,0.15) 0%, transparent 70%);
+            padding: 40px 20px;
         }
 
-        .stage-title {
-            flex: 1;
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1300px;
+            width: 100%;
         }
 
-        .stage-title h3 {
-            font-size: 1.8em;
-            color: #ff6b35;
+        .hero-text {
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 4em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--rog-orange), var(--rog-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5em;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.1em;
+            color: var(--rog-accent);
+            border-left: 3px solid var(--rog-orange);
+            padding-left: 20px;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 30px 60px rgba(255,107,53,0.4));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            font-size: 2em;
+            color: var(--rog-orange);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Seções de Etapas */
+        .stage-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .stage-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .stage-content.reverse {
+            direction: rtl;
+        }
+
+        .stage-content.reverse > * {
+            direction: ltr;
+        }
+
+        .stage-visual {
+            position: relative;
+        }
+
+        .stage-visual img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .stage-visual img:hover {
+            transform: scale(1.03);
+        }
+
+        .stage-visual .overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--rog-orange);
+        }
+
+        .stage-visual .overlay h4 {
+            color: var(--rog-orange);
+            font-size: 0.9em;
             margin-bottom: 5px;
         }
 
-        .stage-title .subtitle {
-            color: #aaa;
-            font-size: 0.95em;
+        .stage-visual .overlay p {
+            font-size: 0.85em;
+            color: #ccc;
         }
 
-        .content-grid {
+        .stage-info {
+            padding: 20px;
+        }
+
+        .stage-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--rog-orange), var(--rog-gold));
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .stage-info h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .stage-info .stage-subtitle {
+            color: var(--rog-orange);
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .info-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
         }
 
-        .content-box {
-            background: rgba(0, 0, 0, 0.3);
+        .info-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 20px;
-            border-left: 4px solid #ff6b35;
+            border-left: 4px solid var(--rog-orange);
+            transition: all 0.3s ease;
         }
 
-        .content-box h4 {
-            color: #f7931e;
+        .info-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+        }
+
+        .info-card h4 {
+            color: var(--rog-gold);
             margin-bottom: 10px;
-            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .content-box p, .content-box ul {
-            color: #ddd;
+        .info-card p, .info-card ul {
+            color: #ccc;
             font-size: 0.95em;
         }
 
-        .content-box ul {
+        .info-card ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
 
-        .content-box ul li {
+        .info-card ul li {
             padding: 5px 0;
             padding-left: 20px;
             position: relative;
         }
 
-        .content-box ul li:before {
+        .info-card ul li::before {
             content: "▸";
             position: absolute;
             left: 0;
-            color: #ff6b35;
+            color: var(--rog-orange);
         }
 
+        .country-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .country-tag {
+            background: rgba(255,107,53,0.2);
+            color: var(--rog-orange);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(255,107,53,0.3);
+        }
+
+        /* Cards Conceituais */
+        .concept-card {
+            background: linear-gradient(135deg, rgba(0,200,255,0.1), rgba(0,150,200,0.05));
+            border-left-color: var(--rog-accent) !important;
+        }
+
+        .concept-card h4 {
+            color: var(--rog-accent) !important;
+        }
+
+        .warning-card {
+            background: linear-gradient(135deg, rgba(255,50,50,0.1), rgba(200,0,0,0.05));
+            border-left-color: #ff4444 !important;
+        }
+
+        .warning-card h4 {
+            color: #ff6666 !important;
+        }
+
+        .reflection-card {
+            background: linear-gradient(135deg, rgba(100,200,100,0.1), rgba(50,150,50,0.05));
+            border-left-color: #64c864 !important;
+        }
+
+        .reflection-card h4 {
+            color: #64c864 !important;
+        }
+
+        /* Stats Grid */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--rog-orange);
+        }
+
+        .stat-box .label {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        /* Process Flow */
+        .process-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+        }
+
+        .process-step {
+            background: rgba(255,107,53,0.2);
+            border: 1px solid rgba(255,107,53,0.4);
+            border-radius: 25px;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .process-arrow {
+            color: var(--rog-orange);
+            font-size: 1.5em;
+        }
+
+        /* Mapa de Componentes */
+        .components-map {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .component-item {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .component-item .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--rog-orange), var(--rog-gold));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .component-item .details h5 {
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        .component-item .details p {
+            color: #888;
+            font-size: 0.8em;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-top: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--rog-orange), var(--rog-gold));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 15px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: var(--rog-orange);
+            border-radius: 50%;
+            border: 3px solid var(--rog-dark);
+        }
+
+        .timeline-item h5 {
+            color: var(--rog-gold);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .footer h3 {
+            color: var(--rog-orange);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .checklist {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            background: rgba(100,200,100,0.1);
+            border-radius: 10px;
+            border-left: 4px solid #64c864;
+        }
+
+        .checklist-item::before {
+            content: "✓";
+            color: #64c864;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .sources {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+            font-size: 0.85em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content,
+            .stage-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5em;
+            }
+
+            .stage-content.reverse {
+                direction: ltr;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stage-visual img {
+                max-width: 100%;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));
-            border: 1px solid rgba(255, 107, 53, 0.3);
+            background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(247,147,30,0.1));
+            border: 1px solid rgba(255,107,53,0.3);
             border-radius: 15px;
             padding: 20px;
             margin-top: 20px;
         }
 
         .highlight-box h4 {
-            color: #ff6b35;
+            color: var(--rog-orange);
             margin-bottom: 10px;
-        }
-
-        .country-tag {
-            display: inline-block;
-            background: rgba(255, 107, 53, 0.2);
-            color: #ff6b35;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            margin: 3px;
-            border: 1px solid rgba(255, 107, 53, 0.3);
-        }
-
-        .concept-box {
-            background: rgba(0, 150, 200, 0.1);
-            border-left-color: #00c8ff;
-        }
-
-        .concept-box h4 {
-            color: #00c8ff;
-        }
-
-        .warning-box {
-            background: rgba(255, 50, 50, 0.1);
-            border-left-color: #ff4444;
-        }
-
-        .warning-box h4 {
-            color: #ff4444;
-        }
-
-        .reflection-box {
-            background: rgba(100, 200, 100, 0.1);
-            border-left-color: #64c864;
-        }
-
-        .reflection-box h4 {
-            color: #64c864;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #ff6b35;
-        }
-
-        .stat-label {
-            font-size: 0.85em;
-            color: #aaa;
-            margin-top: 5px;
-        }
-
-        .arrow-down {
-            text-align: center;
-            font-size: 3em;
-            color: #ff6b35;
-            margin: 20px 0;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            margin-top: 40px;
-        }
-
-        .footer h3 {
-            color: #ff6b35;
-            margin-bottom: 20px;
-        }
-
-        .checklist {
-            display: inline-block;
-            text-align: left;
-        }
-
-        .checklist-item {
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .checklist-item:before {
-            content: "✓";
-            color: #64c864;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .youth-impact {
-            background: linear-gradient(135deg, rgba(100, 100, 255, 0.1), rgba(150, 50, 200, 0.1));
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .youth-impact h4 {
-            color: #9680ff;
-            margin-bottom: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .stage-title h3 {
-                font-size: 1.4em;
-            }
-            
-            .flow-line {
-                left: 30px;
-            }
-            
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .process-flow {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-            align-items: center;
-        }
-
-        .process-step {
-            background: rgba(255, 107, 53, 0.2);
-            border: 1px solid rgba(255, 107, 53, 0.4);
-            border-radius: 25px;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        .process-arrow {
-            color: #ff6b35;
-            font-size: 1.5em;
-        }
-
-        .geographic-map {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .geographic-map h4 {
-            color: #f7931e;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .map-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .map-region {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .map-region h5 {
-            color: #ff6b35;
-            margin-bottom: 8px;
-            font-size: 1em;
-        }
-
-        .map-region p {
-            font-size: 0.85em;
-            color: #bbb;
         }
     </style>
 <base target="_blank">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎮 ASUS ROG Flow Z13</h1>
-            <h2>Infográfico de Fluxo: Da Concepção ao Consumidor</h2>
-            <p style="margin-top: 15px; opacity: 0.9;">Uma análise completa da cadeia produtiva global</p>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>ROG Flow Z13</h1>
+                <p class="subtitle">A Jornada de um Tablet Gamer<br>da Concepção ao Consumidor</p>
+                <p class="tagline">
+                    Uma análise completa da cadeia produtiva global:<br>
+                    desde a mineração na África até a sua mesa
+                </p>
+            </div>
+            <div class="hero-image">
+                <img src="https://dlcdnwebimgs.asus.com/files/media/2523515c-4a57-41a5-9004-67490621ae51/v1/images/large/1x/kv_z13_back.png" alt="ASUS ROG Flow Z13">
+            </div>
         </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+            <p style="font-size: 0.8em; color: #888;">Role para explorar</p>
+        </div>
+    </section>
 
-        <div class="flow-container">
-            <div class="flow-line"></div>
-
-            <!-- ETAPA 1: Onde nasce a ideia -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">1</div>
-                        <div class="stage-title">
-                            <h3>Onde Nasce a Ideia?</h3>
-                            <div class="subtitle">Concepção, Design e Desenvolvimento</div>
+    <!-- ETAPA 1: Onde Nasce a Ideia -->
+    <section class="stage-section">
+        <div class="stage-content">
+            <div class="stage-visual">
+                <img src="https://dlcdnwebimgs.asus.com/gain/8CCD54E4-9A46-431E-B3E7-7BF4037F0DC1/w250/fwebp" alt="ROG Flow Z13 Design">
+                <div class="overlay">
+                    <h4>🎨 Design Premium</h4>
+                    <p>Desenvolvido por engenheiros taiwaneses com foco em performance e portabilidade</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">1</div>
+                <h2>Onde Nasce a Ideia?</h2>
+                <p class="stage-subtitle">Concepção, Design e Desenvolvimento</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>🏢 Sede da ASUS</h4>
+                        <p><strong>ASUS Tek Computer Inc.</strong> - Fundada em 1989 em <strong>Taipei, Taiwan</strong></p>
+                        <div class="country-tags">
+                            <span class="country-tag">🇹🇼 Taipei, Taiwan</span>
                         </div>
                     </div>
                     
-                    <div class="content-grid">
-                        <div class="content-box">
-                            <h4>🏢 Sede da Empresa</h4>
-                            <p><strong>ASUS Tek Computer Inc.</strong></p>
-                            <p>Fundada em <strong>1989 em Taipei, Taiwan</strong></p>
-                            <p>Distrito de Beitou, Taipei</p>
-                            <div style="margin-top: 10px;">
-                                <span class="country-tag">🇹🇼 Taiwan</span>
-                            </div>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>👥 Os Fundadores</h4>
-                            <ul>
-                                <li>T.H. Tung</li>
-                                <li>Ted Hsu</li>
-                                <li>Wayne Hsieh</li>
-                                <li>M.T. Liao</li>
-                            </ul>
-                            <p style="margin-top: 10px; font-size: 0.9em;">Ex-engenheiros da Acer que criaram a ASUS</p>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>🎨 Design e Engenharia</h4>
-                            <p><strong>ROG (Republic of Gamers)</strong> - Linha premium da ASUS</p>
-                            <ul>
-                                <li>Engenheiros de hardware em Taiwan</li>
-                                <li>Designers de produto</li>
-                                <li>Especialistas em thermal design</li>
-                                <li>Engenheiros de software (BIOS, Armoury Crate)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>💻 Desenvolvimento de Software</h4>
-                            <p><strong>Software proprietário:</strong></p>
-                            <ul>
-                                <li>Armoury Crate (controle do sistema)</li>
-                                <li>GameVisual</li>
-                                <li>Virtual Assistant com IA</li>
-                                <li>Drivers e firmware</li>
-                            </ul>
-                            <p style="margin-top: 10px;"><strong>Windows 11</strong> - Microsoft (EUA)</p>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>🧠 Capitalismo Informacional em Ação</h4>
-                        <p>O design do ROG Flow Z13 é um exemplo de <strong>trabalho intelectual de alta qualificação</strong>. Engenheiros taiwaneses desenvolvem o produto usando:</p>
-                        <ul style="margin-top: 10px;">
-                            <li>Software de CAD avançado</li>
-                            <li>Simulações térmicas computacionais</li>
-                            <li>Algoritmos de otimização de performance</li>
-                            <li>Inteligência Artificial para assistente virtual local</li>
+                    <div class="info-card">
+                        <h4>👥 Os Fundadores</h4>
+                        <ul>
+                            <li>T.H. Tung, Ted Hsu, Wayne Hsieh, M.T. Liao</li>
+                            <li>Ex-engenheiros da Acer</li>
                         </ul>
-                        <p style="margin-top: 10px;"><strong>AMD Ryzen AI Max+ 395</strong> com NPU de 50 TOPS - processador projetado nos EUA</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 2: Matéria-prima -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">2</div>
-                        <div class="stage-title">
-                            <h3>De Onde Vem a Matéria-Prima?</h3>
-                            <div class="subtitle">Mineração e Extração de Componentes</div>
-                        </div>
                     </div>
                     
-                    <div class="geographic-map">
-                        <h4>🗺️ Mapa de Origem dos Componentes</h4>
-                        <div class="map-grid">
-                            <div class="map-region">
-                                <h5>🇨🇩 República Democrática do Congo</h5>
-                                <p><strong>Cobalto</strong> - 70% da produção mundial</p>
-                                <p style="font-size: 0.8em; color: #ff6b35; margin-top: 5px;">Baterias de íons de lítio</p>
-                            </div>
-                            <div class="map-region">
-                                <h5>🇨🇱 Chile / 🇦🇷 Argentina</h5>
-                                <p><strong>Lítio</strong> - Triângulo do Lítio</p>
-                                <p style="font-size: 0.8em; color: #ff6b35; margin-top: 5px;">Baterias</p>
-                            </div>
-                            <div class="map-region">
-                                <h5>🇨🇳 China</h5>
-                                <p><strong>Terras raras</strong> - 60% da produção</p>
-                                <p style="font-size: 0.8em; color: #ff6b35; margin-top: 5px;">Ímãs, componentes eletrônicos</p>
-                            </div>
-                            <div class="map-region">
-                                <h5>🇦🇺 Austrália / 🇵🇪 Peru</h5>
-                                <p><strong>Cobre</strong> - Fiação elétrica</p>
-                                <p style="font-size: 0.8em; color: #ff6b35; margin-top: 5px;">Circuitos, conectores</p>
-                            </div>
-                            <div class="map-region">
-                                <h5>🇿🇦 África do Sul / 🇷🇺 Rússia</h5>
-                                <p><strong>Platina / Paládio</strong></p>
-                                <p style="font-size: 0.8em; color: #ff6b35; margin-top: 5px;">Capacitores, componentes</p>
-                            </div>
-                            <div class="map-region">
-                                <h5>🇧🇷 Brasil / 🇮🇩 Indonésia</h5>
-                                <p><strong>Níquel</strong> - Ligas metálicas</p>
-                                <p style="font-size: 0.8em; color: #ff6b35; margin-top: 5px;">Estrutura, componentes</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="content-grid" style="margin-top: 20px;">
-                        <div class="content-box warning-box">
-                            <h4>⚠️ Condições de Mineração</h4>
-                            <p><strong>Na República Democrática do Congo:</strong></p>
-                            <ul>
-                                <li>~2 milhões trabalham em mineração artesanal</li>
-                                <li>Trabalho infantil em minas de cobalto</li>
-                                <li>Condições subumanas e degradantes</li>
-                                <li>Salário: ~US$ 2/dia (menores de idade)</li>
-                                <li>Risco de deslizamentos, doenças respiratórias</li>
-                                <li>Contaminação de água, solo e ar</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>🔧 Componentes Principais do Z13</h4>
-                            <ul>
-                                <li><strong>Processador:</strong> AMD Ryzen AI Max+ 395 (EUA)</li>
-                                <li><strong>Memória:</strong> LPDDR5X 8000MHz (Coreia do Sul)</li>
-                                <li><strong>SSD:</strong> NVMe PCIe 4.0 (Coreia/Japão)</li>
-                                <li><strong>Display:</strong> Painel IPS 13.4" (Coreia/Japão)</li>
-                                <li><strong>Bateria:</strong> 70Wh Li-ion (China)</li>
-                                <li><strong>Chassi:</strong> Alumínio CNC (China)</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>🌍 Impacto Global da Extração</h4>
-                        <p>A transição para energias renováveis e tecnologia aumenta a demanda por minerais críticos. A <strong>RDC possui 65% das reservas globais de cobalto</strong>, mas o país recebe apenas <strong>10% de royalties</strong> pela extração, segundo a Oxfam.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 3: Montagem -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">3</div>
-                        <div class="stage-title">
-                            <h3>Onde Ocorre a Montagem?</h3>
-                            <div class="subtitle">Fábricas e Produção</div>
-                        </div>
-                    </div>
-                    
-                    <div class="content-grid">
-                        <div class="content-box">
-                            <h4>🏭 Fábricas da ASUS</h4>
-                            <p><strong>Propriedade da ASUS:</strong></p>
-                            <ul>
-                                <li>🇹🇼 Taiwan (Taipei, Luzhu, Nangang)</li>
-                                <li>🇨🇳 China (Suzhou - Hi-Tech Park, Chongqing)</li>
-                                <li>🇲🇽 México (Ciudad Juárez)</li>
-                                <li>🇨🇿 República Tcheca (Ostrava)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>🤝 Terceirização (OEM/ODM)</h4>
-                            <p><strong>Fabricantes parceiros:</strong></p>
-                            <ul>
-                                <li><strong>Foxconn</strong> (Hon Hai) - Taiwan/China</li>
-                                <li><strong>Pegatron</strong> - Taiwan (ex-ASUS)</li>
-                                <li><strong>Compal</strong> - Taiwan</li>
-                                <li><strong>Wistron</strong> - Taiwan</li>
-                            </ul>
-                            <p style="margin-top: 10px; font-size: 0.9em;">A ASUS terceiriza grande parte da produção para focar em design</p>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>📍 Por que na China?</h4>
-                            <ul>
-                                <li><strong>Mão de obra:</strong> Custo mais baixo</li>
-                                <li><strong>Infraestrutura:</strong> Ecossistema completo</li>
-                                <li><strong>Proximidade:</strong> Fornecedores de componentes</li>
-                                <li><strong>Escala:</strong> Capacidade de produção massiva</li>
-                                <li><strong>Logística:</strong> Portos eficientes</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>🌏 Cadeia de Suprimentos</h4>
-                            <p><strong>Semicondutores:</strong></p>
-                            <ul>
-                                <li>TSMC - Taiwan (90% dos chips avançados)</li>
-                                <li>Samsung - Coreia do Sul</li>
-                                <li>Micron - EUA</li>
-                            </ul>
-                            <p style="margin-top: 10px;"><strong>Display:</strong> Samsung/LG - Coreia</p>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>⚙️ Fordismo e Toyotismo na Prática</h4>
-                        <div class="content-grid" style="margin-top: 15px;">
-                            <div class="content-box concept-box">
-                                <h4>🏭 Resquícios de Fordismo</h4>
-                                <ul>
-                                    <li>Linhas de montagem automatizadas</li>
-                                    <li>Trabalho repetitivo e especializado</li>
-                                    <li>Operários realizam tarefas específicas</li>
-                                    <li>Controle de qualidade no final</li>
-                                    <li>Produção em massa</li>
-                                </ul>
-                            </div>
-                            <div class="content-box concept-box">
-                                <h4>🚗 Sistema Toyotista (Just-in-Time)</h4>
-                                <ul>
-                                    <li>Produção "sob demanda"</li>
-                                    <li>Estoques mínimos</li>
-                                    <li>Entrega de componentes no momento certo</li>
-                                    <li>Flexibilidade na linha de produção</li>
-                                    <li>Apple: estoque gira a cada 5 dias</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 4: Capitalismo Informacional -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">4</div>
-                        <div class="stage-title">
-                            <h3>Capitalismo Informacional</h3>
-                            <div class="subtitle">Trabalho Intelectual, Dados e Algoritmos</div>
-                        </div>
-                    </div>
-                    
-                    <div class="content-grid">
-                        <div class="content-box concept-box">
-                            <h4>🧠 Trabalho Intelectual</h4>
-                            <ul>
-                                <li>Engenheiros de hardware (Taiwan)</li>
-                                <li>Desenvolvedores de software</li>
-                                <li>Designers de UX/UI</li>
-                                <li>Cientistas de dados</li>
-                                <li>Especialistas em IA/ML</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box concept-box">
-                            <h4>📊 Uso de Dados</h4>
-                            <ul>
-                                <li>Coleta de dados de uso (Armoury Crate)</li>
-                                <li>Análise de performance térmica</li>
-                                <li>Feedback de usuários</li>
-                                <li>Dados de mercado para previsão</li>
-                                <li>Otimização de processos</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box concept-box">
-                            <h4>🤖 Algoritmos e IA</h4>
-                            <ul>
-                                <li>AMD Ryzen AI - NPU 50 TOPS</li>
-                                <li>Assistente Virtual com Llama3</li>
-                                <li>AMD Fluid Motion Frames</li>
-                                <li>AI Noise Cancelation</li>
-                                <li>GameVisual otimizado por IA</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box concept-box">
-                            <h4>💻 Alta Tecnologia</h4>
-                            <ul>
-                                <li>Processo de 4nm (TSMC)</li>
-                                <li>PCB de 14 camadas</li>
-                                <li>Microvias otimizadas</li>
-                                <li>VRM de 14 fases</li>
-                                <li>Metal líquido térmico</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>🌐 Conceito: Capitalismo Informacional (Manuel Castells)</h4>
-                        <p>O <strong>Capitalismo Informacional</strong> é caracterizado pela geração de riqueza através do processamento do conhecimento e da informação. No caso do ROG Flow Z13:</p>
-                        <ul style="margin-top: 10px;">
-                            <li><strong>Matéria-prima principal:</strong> Conhecimento técnico e código</li>
-                            <li><strong>Meios de produção:</strong> Computação avançada e software</li>
-                            <li><strong>Produto final:</strong> Hardware + Software + Serviços</li>
-                            <li><strong>Localização:</strong> Concentrado em polos tecnológicos (Taiwan, EUA)</li>
+                    <div class="info-card concept-card">
+                        <h4>🧠 Capitalismo Informacional</h4>
+                        <p>Engenheiros usam CAD avançado, simulações térmicas e IA para desenvolver:</p>
+                        <ul>
+                            <li>Assistente Virtual com Llama3</li>
+                            <li>AMD Ryzen AI - NPU 50 TOPS</li>
+                            <li>Software Armoury Crate</li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 5: Logística -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">5</div>
-                        <div class="stage-title">
-                            <h3>Logística e Fluxos</h3>
-                            <div class="subtitle">Compressão Tempo-Espaço</div>
+    <!-- ETAPA 2: Matéria-Prima -->
+    <section class="stage-section">
+        <div class="stage-content reverse">
+            <div class="stage-visual">
+                <img src="https://dlcdnwebimgs.asus.com/files/media/2523515c-4a57-41a5-9004-67490621ae51/v1/images/large/1x/kv_z13_front.png" alt="ROG Flow Z13 Display">
+                <div class="overlay">
+                    <h4>🔋 Bateria 70Wh</h4>
+                    <p>Contém cobalto da RDC e lítio do Chile</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">2</div>
+                <h2>De Onde Vem a Matéria-Prima?</h2>
+                <p class="stage-subtitle">Mineração e Extração de Componentes</p>
+                
+                <div class="components-map">
+                    <div class="component-item">
+                        <div class="icon">🇨🇩</div>
+                        <div class="details">
+                            <h5>Cobalto</h5>
+                            <p>RDC - 70% mundial</p>
                         </div>
                     </div>
-                    
-                    <div class="process-flow">
-                        <div class="process-step">Fábrica<br>China/Taiwan</div>
-                        <div class="process-arrow">→</div>
-                        <div class="process-step">Porto<br>Shanghai/Shenzhen</div>
-                        <div class="process-arrow">→</div>
-                        <div class="process-step">Navio<br>Container</div>
-                        <div class="process-arrow">→</div>
-                        <div class="process-step">Porto<br>Destino</div>
-                        <div class="process-arrow">→</div>
-                        <div class="process-step">Centro<br>Distribuição</div>
-                        <div class="process-arrow">→</div>
-                        <div class="process-step">Entrega<br>Consumidor</div>
-                    </div>
-
-                    <div class="content-grid">
-                        <div class="content-box">
-                            <h4>🚢 Transporte Marítimo</h4>
-                            <ul>
-                                <li>Containeres de 20-40 pés</li>
-                                <li>Rota: Ásia → Europa/Américas</li>
-                                <li>Tempo: 15-30 dias</li>
-                                <li>Custo: US$ 2.000-5.000/container</li>
-                                <li>Portos: Shanghai, Shenzhen, Hong Kong</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>✈️ Transporte Aéreo</h4>
-                            <ul>
-                                <li>Produtos de alto valor</li>
-                                <li>Lançamentos urgentes</li>
-                                <li>Tempo: 3-7 dias</li>
-                                <li>Custo: 10-20x mais caro</li>
-                                <li>Hubs: Taipei, Hong Kong, Cingapura</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>🌐 Compressão Tempo-Espaço (David Harvey)</h4>
-                            <p>A <strong>compressão tempo-espaço</strong> refere-se à redução do tempo necessário para superar o espaço devido às inovações tecnológicas:</p>
-                            <ul style="margin-top: 10px;">
-                                <li>Internet: Comunicação instantânea</li>
-                                <li>Transporte rápido: Menor tempo de entrega</li>
-                                <li>Cadeia global: Produção distribuída</li>
-                                <li>Just-in-Time: Estoques mínimos</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>📱 Tecnologia na Logística</h4>
-                            <ul>
-                                <li>Rastreamento GPS em tempo real</li>
-                                <li>IoT nos containeres</li>
-                                <li>Blockchain para documentação</li>
-                                <li>Algoritmos de otimização de rotas</li>
-                                <li>Armazéns automatizados</li>
-                            </ul>
+                    <div class="component-item">
+                        <div class="icon">🇨🇱</div>
+                        <div class="details">
+                            <h5>Lítio</h5>
+                            <p>Chile/Argentina</p>
                         </div>
                     </div>
-
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">90%</div>
-                            <div class="stat-label">Carga global por navios</div>
+                    <div class="component-item">
+                        <div class="icon">🇨🇳</div>
+                        <div class="details">
+                            <h5>Terras Raras</h5>
+                            <p>China - 60%</p>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number">24h</div>
-                            <div class="stat-label">Entrega expressa</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">5 dias</div>
-                            <div class="stat-label">Giro de estoque Apple</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50%</div>
-                            <div class="stat-label">Redução de custos JIT</div>
+                    </div>
+                    <div class="component-item">
+                        <div class="icon">🇦🇺</div>
+                        <div class="details">
+                            <h5>Cobre</h5>
+                            <p>Austrália/Peru</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="info-cards" style="margin-top: 20px;">
+                    <div class="info-card warning-card">
+                        <h4>⚠️ Condições na RDC</h4>
+                        <ul>
+                            <li>~2 milhões em mineração artesanal</li>
+                            <li>Trabalho infantil: salário ~US$ 2/dia</li>
+                            <li>Riscos de acidentes e doenças</li>
+                            <li>Contaminação ambiental</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🔧 Componentes do Z13</h4>
+                        <ul>
+                            <li><strong>Processador:</strong> AMD Ryzen AI Max+ 395 (EUA)</li>
+                            <li><strong>Memória:</strong> LPDDR5X (Coreia do Sul)</li>
+                            <li><strong>SSD:</strong> NVMe PCIe 4.0 (Coreia/Japão)</li>
+                            <li><strong>Display:</strong> IPS 13.4" 180Hz (Coreia)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 6: Uberização -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">6</div>
-                        <div class="stage-title">
-                            <h3>Uberização do Trabalho</h3>
-                            <div class="subtitle">Trabalho Precarizado e Aplicativos</div>
+    <!-- ETAPA 3: Montagem -->
+    <section class="stage-section">
+        <div class="stage-content">
+            <div class="stage-visual">
+                <img src="https://dlcdnwebimgs.asus.com/gain/7872C528-78F3-42C8-ADC9-240EB4383915/w1000/h732" alt="ROG Flow Z13 Montagem">
+                <div class="overlay">
+                    <h4>⚙️ Montagem Precisa</h4>
+                    <p>PCB de 14 camadas, VRM 14 fases, metal líquido térmico</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">3</div>
+                <h2>Onde Ocorre a Montagem?</h2>
+                <p class="stage-subtitle">Fábricas e Produção</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>🏭 Fábricas ASUS</h4>
+                        <div class="country-tags">
+                            <span class="country-tag">🇹🇼 Taiwan</span>
+                            <span class="country-tag">🇨🇳 China (Suzhou)</span>
+                            <span class="country-tag">🇲🇽 México</span>
+                            <span class="country-tag">🇨🇿 República Tcheca</span>
                         </div>
                     </div>
                     
-                    <div class="content-grid">
-                        <div class="content-box warning-box">
-                            <h4>📱 Entrega via Aplicativos</h4>
-                            <p><strong>Última milha:</strong></p>
-                            <ul>
-                                <li>iFood, Rappi, Uber Eats (Brasil)</li>
-                                <li>Amazon Flex, Uber (EUA/Europa)</li>
-                                <li>Motoboys e ciclistas (bikers)</li>
-                                <li>Trabalho sem vínculo empregatício</li>
-                                <li>Remuneração por entrega</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box warning-box">
-                            <h4>⚠️ Condições de Trabalho</h4>
-                            <ul>
-                                <li>Jornada: 10-12 horas/dia</li>
-                                <li>Renda média: R$ 1.200-2.500</li>
-                                <li>Sem benefícios (FGTS, férias)</li>
-                                <li>Risco de acidentes</li>
-                                <li>Bloqueios por avaliações</li>
-                                <li>Sem proteção trabalhista</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>📊 Perfil dos Trabalhadores</h4>
-                            <ul>
-                                <li>95% homens (motofretistas)</li>
-                                <li>Média de 25 anos</li>
-                                <li>Ensino médio completo</li>
-                                <li>Trabalham para 2+ apps</li>
-                                <li>Veículos próprios</li>
-                                <li>Dependem exclusivamente do app</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>🌍 Impacto da Uberização</h4>
-                            <ul>
-                                <li>Flexibilidade vs. precarização</li>
-                                <li>Desregulamentação do trabalho</li>
-                                <li>Plataformas como intermediárias</li>
-                                <li>Algoritmos controlam jornada</li>
-                                <li>Competição entre trabalhadores</li>
-                            </ul>
-                        </div>
+                    <div class="info-card">
+                        <h4>🤝 Terceirização</h4>
+                        <p><strong>Fabricantes parceiros:</strong></p>
+                        <ul>
+                            <li>Foxconn (Hon Hai) - Taiwan/China</li>
+                            <li>Pegatron - Taiwan (ex-ASUS)</li>
+                            <li>Compal, Wistron - Taiwan</li>
+                        </ul>
                     </div>
+                    
+                    <div class="info-card concept-card">
+                        <h4>🏭 Fordismo na Prática</h4>
+                        <ul>
+                            <li>Linhas de montagem automatizadas</li>
+                            <li>Trabalho repetitivo e especializado</li>
+                            <li>Operários em tarefas específicas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card concept-card">
+                        <h4>🚗 Toyotismo (Just-in-Time)</h4>
+                        <ul>
+                            <li>Produção "sob demanda"</li>
+                            <li>Estoques mínimos</li>
+                            <li>Entrega no momento certo</li>
+                            <li>Apple: estoque gira a cada 5 dias</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="highlight-box">
+    <!-- ETAPA 4: Capitalismo Informacional -->
+    <section class="stage-section">
+        <div class="stage-content reverse">
+            <div class="stage-visual">
+                <img src="https://sm.ign.com/t/ign_ap/review/a/asus-rog-f/asus-rog-flow-z13-review_3qq8.1024.jpg" alt="ROG Flow Z13 em uso">
+                <div class="overlay">
+                    <h4>🤖 IA Integrada</h4>
+                    <p>AMD Ryzen AI com NPU de 50 TOPS - processamento local</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">4</div>
+                <h2>Capitalismo Informacional</h2>
+                <p class="stage-subtitle">Trabalho Intelectual, Dados e Algoritmos</p>
+                
+                <div class="info-cards">
+                    <div class="info-card concept-card">
+                        <h4>🧠 Trabalho Intelectual</h4>
+                        <ul>
+                            <li>Engenheiros de hardware (Taiwan)</li>
+                            <li>Desenvolvedores de software</li>
+                            <li>Cientistas de dados</li>
+                            <li>Especialistas em IA/ML</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card concept-card">
+                        <h4>📊 Uso de Dados</h4>
+                        <ul>
+                            <li>Coleta via Armoury Crate</li>
+                            <li>Análise de performance térmica</li>
+                            <li>Feedback de usuários</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card concept-card">
+                        <h4>🤖 Algoritmos e IA</h4>
+                        <ul>
+                            <li>Assistente Virtual Llama3</li>
+                            <li>AMD Fluid Motion Frames</li>
+                            <li>AI Noise Cancelation</li>
+                            <li>GameVisual otimizado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>📚 Conceito: Capitalismo Informacional (Manuel Castells)</h4>
+                    <p>Riqueza gerada pelo processamento do <strong>conhecimento e informação</strong>. Matéria-prima principal: código e know-how técnico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAPA 5: Logística -->
+    <section class="stage-section">
+        <div class="stage-content">
+            <div class="stage-visual">
+                <img src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:448,cw:1152,ch:1152,q:80,w:1152/dTo2nNwqHUKwKq2aF9zrSW.jpg" alt="ROG Flow Z13 Setup">
+                <div class="overlay">
+                    <h4>🚢 Da Fábrica até Você</h4>
+                    <p>Compressão tempo-espaço: tecnologia reduzindo distâncias</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">5</div>
+                <h2>Logística e Fluxos</h2>
+                <p class="stage-subtitle">Compressão Tempo-Espaço</p>
+                
+                <div class="process-flow">
+                    <div class="process-step">Fábrica<br>🇨🇳 China</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">Porto<br>Shanghai</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">Navio<br>🚢</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">Porto<br>Destino</div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">Você<br>🏠</div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="number">90%</div>
+                        <div class="label">Carga por navios</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">15-30</div>
+                        <div class="label">Dias marítimo</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">5</div>
+                        <div class="label">Dias giro estoque</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number">50%</div>
+                        <div class="label">Redução custos JIT</div>
+                    </div>
+                </div>
+
+                <div class="info-card concept-card" style="margin-top: 20px;">
+                    <h4>🌐 Compressão Tempo-Espaço (David Harvey)</h4>
+                    <p>Redução do tempo para superar o espaço devido às inovações tecnológicas:</p>
+                    <ul>
+                        <li>Internet: comunicação instantânea</li>
+                        <li>Transporte rápido: menor tempo de entrega</li>
+                        <li>Cadeia global: produção distribuída</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAPA 6: Uberização -->
+    <section class="stage-section">
+        <div class="stage-content reverse">
+            <div class="stage-visual">
+                <img src="https://cdn.mos.cms.futurecdn.net/FrD9ngUyfs27TLDR62wETH.jpg" alt="ROG Flow Z13 ACRNM">
+                <div class="overlay">
+                    <h4>📱 Entrega por Apps</h4>
+                    <p>Última milha: trabalhadores de aplicativos entregam o produto</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">6</div>
+                <h2>Uberização do Trabalho</h2>
+                <p class="stage-subtitle">Trabalho Precarizado e Aplicativos</p>
+                
+                <div class="info-cards">
+                    <div class="info-card warning-card">
+                        <h4>📱 Entrega via Apps</h4>
+                        <ul>
+                            <li>iFood, Rappi, Uber Eats (Brasil)</li>
+                            <li>Amazon Flex, Uber (EUA/Europa)</li>
+                            <li>Trabalho sem vínculo empregatício</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card warning-card">
+                        <h4>⚠️ Condições</h4>
+                        <ul>
+                            <li>Jornada: 10-12 horas/dia</li>
+                            <li>Renda: R$ 1.200-2.500/mês</li>
+                            <li>Sem benefícios (FGTS, férias)</li>
+                            <li>Risco de acidentes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
                         <h4>🔄 Conceito: Uberização</h4>
-                        <p>A <strong>uberização</strong> é um modelo econômico baseado em plataformas digitais que conectam trabalhadores a clientes sem vínculo empregatício tradicional. Características:</p>
-                        <ul style="margin-top: 10px;">
-                            <li>Trabalho "on-demand" (sob demanda)</li>
-                            <li>Remuneração por tarefa realizada</li>
-                            <li>Algoritmos definem preços e rotas</li>
-                            <li>Trabalhadores são "parceiros", não funcionários</li>
-                            <li>Externalização de riscos para o trabalhador</li>
+                        <p>Modelo econômico baseado em plataformas digitais:</p>
+                        <ul>
+                            <li>Trabalho "on-demand"</li>
+                            <li>Remuneração por tarefa</li>
+                            <li>Algoritmos definem rotas</li>
+                            <li>"Parceiros", não funcionários</li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 7: Impacto na Juventude -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">7</div>
-                        <div class="stage-title">
-                            <h3>Impacto na Juventude</h3>
-                            <div class="subtitle">Como a Tecnologia Muda o Mercado de Trabalho</div>
-                        </div>
-                    </div>
-                    
-                    <div class="content-grid">
-                        <div class="content-box warning-box">
-                            <h4>📉 Profissões em Extinção</h4>
-                            <ul>
-                                <li>Operadores de telemarketing</li>
-                                <li>Caixas de supermercado</li>
-                                <li>Digitadores</li>
-                                <li>Atendentes de call center</li>
-                                <li>Funcionários de correios</li>
-                                <li>Revisores de texto básicos</li>
-                            </ul>
-                            <p style="margin-top: 10px;"><strong>Estudo Fórum Econômico Mundial:</strong> 83 milhões de empregos eliminados até 2027</p>
-                        </div>
-                        
-                        <div class="content-box reflection-box">
-                            <h4>📈 Novas Profissões</h4>
-                            <ul>
-                                <li>Especialistas em IA/ML</li>
-                                <li>Cientistas de dados</li>
-                                <li>Engenheiros de robótica</li>
-                                <li>Especialistas em cibersegurança</li>
-                                <li>Desenvolvedores UX/UI</li>
-                                <li>Gestores de transformação digital</li>
-                            </ul>
-                            <p style="margin-top: 10px;"><strong>69 milhões de novos empregos</strong> surgirão até 2027</p>
-                        </div>
-                        
-                        <div class="content-box warning-box">
-                            <h4>🎓 Impacto em Jovens (22-25 anos)</h4>
-                            <p><strong>Estudo Stanford (2025):</strong></p>
-                            <ul>
-                                <li>Redução de 13% nas contratações</li>
-                                <li>Programadores: queda de 20%</li>
-                                <li>Profissionais experientes: estáveis</li>
-                                <li>IA elimina vagas de entrada</li>
-                                <li>Menos oportunidades de aprendizado</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box reflection-box">
-                            <h4>💡 Competências do Futuro</h4>
-                            <ul>
-                                <li>Pensamento crítico</li>
-                                <li>Criatividade</li>
-                                <li>Inteligência emocional</li>
-                                <li>Comunicação</li>
-                                <li>Trabalho em equipe</li>
-                                <li>Aprendizado contínuo</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="youth-impact">
-                        <h4>🎯 Reflexão: Como Isso Afeta Minha Geração?</h4>
-                        <p>Como jovens da geração Z, enfrentamos um cenário de <strong>transformação acelerada</strong>:</p>
-                        <ul style="margin-top: 10px;">
-                            <li><strong>Oportunidades:</strong> Acesso a tecnologia de ponta, possibilidade de trabalho remoto, novas carreiras em tecnologia</li>
-                            <li><strong>Desafios:</strong> Competitividade global, necessidade de constante atualização, precarização de alguns empregos</li>
-                            <li><strong>Paradoxo:</strong> Consumimos tecnologia avançada (como o ROG Flow Z13), mas enfrentamos incerteza no mercado de trabalho</li>
-                            <li><strong>Responsabilidade:</strong> Consciência sobre as condições de produção e impacto social da cadeia global</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="arrow-down">⬇</div>
-
-            <!-- ETAPA 8: Sustentabilidade Social -->
-            <div class="stage">
-                <div class="stage-card">
-                    <div class="stage-header">
-                        <div class="stage-number">8</div>
-                        <div class="stage-title">
-                            <h3>Sustentabilidade Social</h3>
-                            <div class="subtitle">Condições de Trabalho na Cadeia Produtiva</div>
-                        </div>
-                    </div>
-                    
-                    <div class="content-grid">
-                        <div class="content-box warning-box">
-                            <h4>⛏️ Mineração (RDC)</h4>
-                            <ul>
-                                <li>Trabalho infantil</li>
-                                <li>Condições subumanas</li>
-                                <li>Salário: US$ 2-150/mês</li>
-                                <li>Riscos de acidentes</li>
-                                <li>Doenças ocupacionais</li>
-                                <li>Sem equipamentos de proteção</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box warning-box">
-                            <h4>🏭 Fábricas (China)</h4>
-                            <ul>
-                                <li>Jornadas de 12+ horas</li>
-                                <li>Trabalho repetitivo</li>
-                                <li>Pressão por metas</li>
-                                <li>Histórico de suicídios (Foxconn)</li>
-                                <li>Moradia em dormitórios</li>
-                                <li>Controle rigoroso</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>📋 Auditorias e Certificações</h4>
-                            <ul>
-                                <li>Código de Conduta de Fornecedores</li>
-                                <li>Certificações ISO</li>
-                                <li>Auditorias de terceiros</li>
-                                <li>Iniciativas de responsabilidade social</li>
-                                <li>Programas de melhoria</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="content-box">
-                            <h4>♻️ Sustentabilidade Ambiental</h4>
-                            <ul>
-                                <li>Redução de embalagens</li>
-                                <li>Programas de reciclagem</li>
-                                <li>Eficiência energética</li>
-                                <li>Redução de CO2</li>
-                                <li>Produtos mais duráveis</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <h4>⚖️ Conclusão: As Condições São Dignas?</h4>
-                        <p><strong>Resposta complexa:</strong></p>
-                        <ul style="margin-top: 10px;">
-                            <li><strong>Design e engenharia (Taiwan/EUA):</strong> Condições dignas, salários altos, trabalho intelectual valorizado</li>
-                            <li><strong>Fábricas de montagem (China):</strong> Condições melhoraram, mas ainda há questões de sobrecarga e pressão</li>
-                            <li><strong>Mineração (RDC):</strong> Condições precárias, trabalho infantil, exploração - o elo mais fraco da cadeia</li>
-                            <li><strong>Logística/Entrega:</strong> Uberização cria precarização no trabalho de última milha</li>
-                        </ul>
-                        <p style="margin-top: 15px;"><strong>O desafio:</strong> Como consumidores, precisamos exigir transparência e responsabilidade social das empresas, reconhecendo que o preço baixo dos eletrônicos muitas vezes esconde custos sociais elevados.</p>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="footer">
+    <!-- ETAPA 7: Impacto na Juventude -->
+    <section class="stage-section">
+        <div class="stage-content">
+            <div class="stage-visual">
+                <img src="https://en.accessoires-asus.com/images/articles/112903/zoom/167964254135.jpg" alt="ROG Flow Z13 Keyboard">
+                <div class="overlay">
+                    <h4>💼 Novas Profissões</h4>
+                    <p>Tecnologia criando e extinguindo empregos</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">7</div>
+                <h2>Impacto na Juventude</h2>
+                <p class="stage-subtitle">Como a Tecnologia Muda o Mercado de Trabalho</p>
+                
+                <div class="info-cards">
+                    <div class="info-card warning-card">
+                        <h4>📉 Profissões em Extinção</h4>
+                        <ul>
+                            <li>Operadores de telemarketing</li>
+                            <li>Caixas de supermercado</li>
+                            <li>Digitadores</li>
+                            <li>Atendentes de call center</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>83 milhões</strong> de empregos eliminados até 2027</p>
+                    </div>
+                    
+                    <div class="info-card reflection-card">
+                        <h4>📈 Novas Profissões</h4>
+                        <ul>
+                            <li>Especialistas em IA/ML</li>
+                            <li>Cientistas de dados</li>
+                            <li>Especialistas em cibersegurança</li>
+                            <li>Desenvolvedores UX/UI</li>
+                        </ul>
+                        <p style="margin-top: 10px;"><strong>69 milhões</strong> de novos empregos até 2027</p>
+                    </div>
+                    
+                    <div class="info-card warning-card">
+                        <h4>🎓 Impacto em Jovens (22-25 anos)</h4>
+                        <p><strong>Estudo Stanford (2025):</strong></p>
+                        <ul>
+                            <li>Redução de 13% nas contratações</li>
+                            <li>Programadores: queda de 20%</li>
+                            <li>IA elimina vagas de entrada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box reflection-card" style="margin-top: 20px; background: linear-gradient(135deg, rgba(100,100,255,0.1), rgba(150,50,200,0.1)); border-left-color: #9680ff;">
+                    <h4 style="color: #9680ff;">🎯 Reflexão: Como Isso Afeta Minha Geração?</h4>
+                    <ul>
+                        <li><strong>Oportunidades:</strong> Acesso a tecnologia de ponta, trabalho remoto, novas carreiras</li>
+                        <li><strong>Desafios:</strong> Competitividade global, necessidade de atualização constante</li>
+                        <li><strong>Paradoxo:</strong> Consumimos tecnologia avançada, mas enfrentamos incerteza no trabalho</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAPA 8: Sustentabilidade -->
+    <section class="stage-section">
+        <div class="stage-content reverse">
+            <div class="stage-visual">
+                <img src="https://dlcdnwebimgs.asus.com/gain/8CCD54E4-9A46-431E-B3E7-7BF4037F0DC1/w250/fwebp" alt="ROG Flow Z13 Completo">
+                <div class="overlay">
+                    <h4>♻️ Sustentabilidade</h4>
+                    <p>Programas de reciclagem e eficiência energética</p>
+                </div>
+            </div>
+            <div class="stage-info">
+                <div class="stage-number">8</div>
+                <h2>Sustentabilidade Social</h2>
+                <p class="stage-subtitle">Condições de Trabalho na Cadeia Produtiva</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h5>⛏️ Mineração (RDC)</h5>
+                        <p>Trabalho infantil, salários de US$ 2/dia, condições precárias</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>🏭 Fábricas (China)</h5>
+                        <p>Jornadas de 12+ horas, pressão por metas, histórico de suicídios na Foxconn</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>📋 Auditorias</h5>
+                        <p>Código de Conduta de Fornecedores, certificações ISO, auditorias de terceiros</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5>🚚 Entrega</h5>
+                        <p>Uberização: trabalho precarizado, sem vínculo empregatício</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h4>⚖️ As Condições São Dignas?</h4>
+                    <p><strong>Resposta complexa:</strong></p>
+                    <ul style="margin-top: 10px;">
+                        <li><strong>Design (Taiwan/EUA):</strong> ✅ Condições dignas, salários altos</li>
+                        <li><strong>Fábricas (China):</strong> ⚠️ Melhoraram, mas há pressão</li>
+                        <li><strong>Mineração (RDC):</strong> ❌ Condições precárias, trabalho infantil</li>
+                        <li><strong>Entrega:</strong> ⚠️ Uberização cria precarização</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>O desafio:</strong> O preço baixo dos eletrônicos muitas vezes esconde custos sociais elevados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
             <h3>✅ Checklist de Verificação</h3>
             <div class="checklist">
                 <div class="checklist-item">Países específicos e contextos geográficos reais citados</div>
@@ -1035,39 +1032,52 @@
                 <div class="checklist-item">Visual organizado, limpo e fácil de entender</div>
             </div>
             
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p style="color: #888; font-size: 0.9em;">
-                    <strong>Fontes:</strong> Site oficial ASUS, Wikipédia, Relatórios Amnistia Internacional, 
-                    Fórum Econômico Mundial, Estudo Stanford Digital Economy Lab, Oxfam, Bloomberg, 
-                    MIT Technology Review, National Geographic, e publicações acadêmicas sobre cadeias globais de valor.
-                </p>
-                <p style="color: #666; font-size: 0.85em; margin-top: 10px;">
-                    Infográfico educacional criado para fins de estudo e conscientização sobre cadeias produtivas globais.
-                </p>
+            <div class="sources">
+                <p><strong>Fontes:</strong> Site oficial ASUS, Wikipédia, Relatórios Amnistia Internacional, 
+                Fórum Econômico Mundial, Estudo Stanford Digital Economy Lab, Oxfam, Bloomberg, 
+                MIT Technology Review, National Geographic, e publicações acadêmicas sobre cadeias globais de valor.</p>
+                <p style="margin-top: 15px;">Infográfico educacional criado para fins de estudo e conscientização sobre cadeias produtivas globais.</p>
             </div>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // Animação suave ao rolar
-        document.addEventListener('DOMContentLoaded', function() {
-            const stages = document.querySelectorAll('.stage-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+        // Animação de scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
-            }, { threshold: 0.1 });
-            
-            stages.forEach(stage => {
-                stage.style.opacity = '0';
-                stage.style.transform = 'translateY(30px)';
-                stage.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(stage);
             });
+        });
+
+        // Animação de elementos ao scrollar
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.info-card, .component-item, .timeline-item, .stat-box').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // Efeito parallax sutil no hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImage = document.querySelector('.hero-image img');
+            if (heroImage && scrolled < window.innerHeight) {
+                heroImage.style.transform = `translateY(${scrolled * 0.3}px) rotate(${-2 + scrolled * 0.002}deg)`;
+            }
         });
     </script>
 </body>
